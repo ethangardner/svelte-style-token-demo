@@ -24,9 +24,10 @@
 		--_color-default: var(--eg-c-step-indicator-color-default, var(--eg-s-color-neutral-100));
 		--_color-active: var(--eg-c-step-indicator-color-active, var(--eg-s-color-cool-100));
 		--_color-completed: var(--eg-c-step-indicator-color-completed, var(--eg-s-color-warm-100));
-		
-		--_marker-size: var(--eg-c-step-indicator-item-marker-size, 8px);
-		
+
+		--_marker-size: var(--eg-c-step-indicator-item-marker-size, var(--eg-s-size-8, 0.5rem));
+		--eg-c-step-indicator-steps-gap: var(--eg-t-spacing-md);
+		--eg-c-step-indicator-step-gap: var(--eg-t-spacing-xxs, var(--eg-s-size-4, 0.25rem));
 		font-family: var(--eg-t-font-family-sans);
 	}
 
@@ -34,14 +35,14 @@
 		display: flex;
 		list-style: none;
 		padding: 0;
-		gap: var(--eg-t-spacing-md);
+		gap: var(--eg-c-step-indicator-steps-gap);
 	}
 
 	.step {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: var(--eg-t-spacing-4, 4px);
+		gap: var(--eg-c-step-indicator-step-gap);
 		flex: 1;
 		position: relative;
 	}

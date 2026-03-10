@@ -11,6 +11,7 @@
     --eg-t-font-family-sans: var(--eg-s-font-family-humanist);
     --eg-t-font-size-md: var(--eg-s-size-20);
     --eg-t-font-size-mdlg: var(--eg-s-size-28);
+    --eg-t-spacing-xxs: var(--eg-s-size-4);
     --eg-t-spacing-md: var(--eg-s-size-20);
     --eg-t-spacing-mdlg: var(--eg-s-size-24);
     --eg-t-spacing-lg: var(--eg-s-size-32);
@@ -23,7 +24,7 @@
     --eg-c-step-indicator-color-default: var(--eg-s-color-cool-110);
     --eg-c-step-indicator-color-active: var(--eg-s-color-neutral-190);
     --eg-c-step-indicator-color-completed: var(--eg-s-color-warm-110);
-    --eg-c-step-indicator-item-marker-size: 7px;
+    --eg-c-step-indicator-item-marker-size: var(--eg-s-size-8);
 }
 
 @media (prefers-color-scheme: dark) {
