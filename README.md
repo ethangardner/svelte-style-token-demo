@@ -1,42 +1,37 @@
-# sv
+# Style Token Adaptation (Svelte 5)
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+This project demonstrates an adaptation of Ethan Gardner's Web Component style token approach to **Svelte 5** and **SvelteKit**. It implements a hierarchical design system using CSS Custom Properties (tokens) to ensure visual consistency while allowing for granular component-level overrides.
 
-## Creating a project
+## Core Intent
 
-If you're seeing this, you've probably already done this step. Congrats!
+The primary goal is to show how to structure CSS tokens in a modern Svelte application to support:
+- **System-level constants**: Foundation colors, spacing, and typography.
+- **Theme-level aliases**: Semantic tokens for backgrounds, text colors, and spacing.
+- **Component-level tokens**: Public APIs for component-specific overrides.
+- **Local overrides**: Using CSS Custom Properties to "pierce" component scoping without complex prop drilling.
+- **Dark mode support**: Automatic theme switching using `prefers-color-scheme` and token reassignment.
+- **Dynamic hover states**: Using OKLCH relative color syntax for lightness-aware hover effects.
 
-```sh
-# create a new project
-npx sv create my-app
-```
+## Critical Files
 
-To recreate this project with the same configuration:
+### Design System & Tokens
+- **`src/lib/styles/system.css`**: Defines the foundational system tokens (colors, sizes, fonts). These are the primitive values.
+- **`src/lib/styles/theme.css`**: Maps system tokens to semantic theme variables (e.g., `--eg-t-body-background`). Handles light/dark mode logic.
+- **`src/lib/styles/app.css`**: The main entry point that organizes styles into `@layer system, theme`.
 
-```sh
-# recreate this project
-npx sv@0.12.5 create --template minimal --types ts --add mcp="ide:opencode" --install npm style-token-demo
-```
+### Components
+- **`src/lib/components/StepIndicator.svelte`**: A navigation component demonstrating status-based color tokens.
+- **`src/lib/components/Button.svelte`**: A flexible button component using OKLCH for lightness manipulation on hover (darker in light mode, lighter in dark mode).
 
-## Developing
+### Routing & Showcase
+- **`src/routes/+page.svelte`**: The main demo page showcasing default component usage and local token overrides for specialized theming.
+- **`src/routes/+layout.svelte`**: The root layout that imports global styles and manages the document head.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Development
 
-```sh
+```bash
+npm install
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Run `npx svelte-check` to verify TypeScript and Svelte 5 syntax correctness.
