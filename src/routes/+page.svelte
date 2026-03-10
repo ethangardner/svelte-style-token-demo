@@ -26,7 +26,7 @@
 
 	<section class="custom-theme">
 		<h2>Step Indicator (Custom Local Theme)</h2>
-		<p>Using <code>--eg-c-step-indicator-color-active: hotpink;</code> via local scope.</p>
+		<p>Overriding <code>--eg-c-step-indicator-color-active</code> for this specific container.</p>
 		<StepIndicator {steps} />
 	</section>
 
@@ -74,8 +74,8 @@
 
 	.custom-theme {
 		/* Locally overriding component tokens */
-		--eg-c-step-indicator-color-active: hotpink;
-		--eg-c-step-indicator-item-marker-size: 14px;
+		--eg-c-step-indicator-color-active: #5a5a06;
+		--eg-c-step-indicator-item-marker-size: var(--eg-s-size-16);
 	}
 
 	.custom-buttons {
@@ -87,6 +87,10 @@
 	}
 
 	@media (prefers-color-scheme: dark) {
+		.custom-theme {
+			--eg-c-step-indicator-color-active: yellow;
+		}
+
 		.custom-buttons {
 			--eg-c-button-outline-fg: var(--eg-s-color-cool-30);
 		}
